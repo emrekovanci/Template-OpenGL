@@ -4,7 +4,11 @@ project(Template_OpenGL)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(${CMAKE_PROJECT_NAME} 
+include_directories(include)
+
+add_executable(${CMAKE_PROJECT_NAME}
+	"src/Shader.cpp"
+	"src/Camera.cpp"
 	Main.cpp
 )
 
@@ -22,3 +26,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE glm::glm)
 
 find_package(imgui CONFIG REQUIRED)
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE imgui::imgui)
+
+file(COPY ${CMAKE_SOURCE_DIR}/shaders DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY ${CMAKE_SOURCE_DIR}/resources DESTINATION ${CMAKE_BINARY_DIR})
