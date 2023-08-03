@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <sstream>
+#include <iterator>
 
 #include <glm/gtc/type_ptr.hpp>
 
@@ -33,7 +33,6 @@ void checkCompileErrors(GLuint shader, std::string type)
 
 Shader::Shader(const char* vertexPath, const char* fragmentPath)
 {
-    // 1. retrieve the vertex/fragment source code from filePath
     std::string vertexCode;
     std::string fragmentCode;
     std::ifstream vShaderFile;
@@ -45,22 +44,14 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath)
 
     try
     {
-        // open files
         vShaderFile.open(vertexPath);
         fShaderFile.open(fragmentPath);
-        std::stringstream vShaderStream, fShaderStream;
 
-        // read file's buffer contents into streams
-        vShaderStream << vShaderFile.rdbuf();
-        fShaderStream << fShaderFile.rdbuf();
+        vertexCode = { std::istreambuf_iterator<char> { vShaderFile }, std::istreambuf_iterator<char> {} };
+        fragmentCode = { std::istreambuf_iterator<char> { fShaderFile }, std::istreambuf_iterator<char> {} };
 
-        // close file handlers
         vShaderFile.close();
         fShaderFile.close();
-
-        // convert stream into string
-        vertexCode = vShaderStream.str();
-        fragmentCode = fShaderStream.str();
     }
     catch (std::ifstream::failure& e)
     {
