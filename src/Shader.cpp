@@ -101,7 +101,7 @@ unsigned int Shader::getProgramId() const
 
 void Shader::setBool(const std::string& name, bool value) const
 {
-    glUniform1i(glGetUniformLocation(_id, name.c_str()), (int)value);
+    glUniform1i(glGetUniformLocation(_id, name.c_str()), static_cast<int>(value));
 }
 
 void Shader::setInt(const std::string& name, int value) const
