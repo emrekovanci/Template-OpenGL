@@ -94,7 +94,6 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         shader.use();
-        shader.setInt("Image", 0);
         shader.setMat4("Model", model);
         shader.setMat4("View", camera.GetViewMatrix());
         shader.setMat4("Projection", projection);
