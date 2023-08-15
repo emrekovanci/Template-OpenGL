@@ -2,9 +2,6 @@ cmake_minimum_required(VERSION 3.2)
 
 project(Template_OpenGL)
 
-# custom compiler warnings configuration
-include("cmake/CompilerWarnings.cmake")
-
 add_executable(${PROJECT_NAME}
     "src/Shader.cpp"
     "src/Camera.cpp"
@@ -15,9 +12,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include
 
 # c++ standard
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
-
-# apply custom compiler warnings
-set_target_warnings(${PROJECT_NAME} TRUE)
 
 find_package(glad CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad::glad)

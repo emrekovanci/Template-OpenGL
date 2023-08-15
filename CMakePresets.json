@@ -19,9 +19,17 @@
             }
         },
         {
+            "name": "flags-windows",
+            "description": "Note that all the flags after /W4 are required for MSVC to conform to the language standard",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS": "/sdl /guard:cf /utf-8 /diagnostics:caret /w14165 /w44242 /w44254 /w44263 /w34265 /w34287 /w44296 /w44365 /w44388 /w44464 /w14545 /w14546 /w14547 /w14549 /w14555 /w34619 /w34640 /w24826 /w14905 /w14906 /w14928 /w45038 /W4 /permissive- /volatile:iso /Zc:inline /Zc:preprocessor /Zc:enumTypes /Zc:lambda /Zc:__cplusplus /Zc:externConstexpr /Zc:throwingNew /EHsc"
+            }
+        },
+        {
             "name": "x64-debug",
             "displayName": "x64 Debug",
-            "inherits": "windows-base",
+            "inherits": ["windows-base", "flags-windows"],
             "architecture": {
                 "value": "x64",
                 "strategy": "external"
@@ -33,27 +41,7 @@
         {
             "name": "x64-release",
             "displayName": "x64 Release",
-            "inherits": "x64-debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
-        },
-        {
-            "name": "x86-debug",
-            "displayName": "x86 Debug",
-            "inherits": "windows-base",
-            "architecture": {
-                "value": "x86",
-                "strategy": "external"
-            },
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
-        },
-        {
-            "name": "x86-release",
-            "displayName": "x86 Release",
-            "inherits": "x86-debug",
+            "inherits": ["x64-debug", "flags-windows"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -71,18 +59,6 @@
             "displayName": "x64 Release",
             "verbose": true,
             "configurePreset": "x64-release"
-        },
-        {
-            "name": "x86-debug",
-            "displayName": "x86 Debug",
-            "verbose": true,
-            "configurePreset": "x86-debug"
-        },
-        {
-            "name": "x86-release",
-            "displayName": "x86 Release",
-            "verbose": true,
-            "configurePreset": "x86-release"
         }
     ]
 }
