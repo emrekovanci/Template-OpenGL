@@ -1,13 +1,11 @@
 # https://github.com/lefticus/cppbestpractices/blob/master/02-Use_the_Tools_Available.md
 
 # custom compiler warnings for a specific target
-function(set_target_warnings target)
-    option(WARNINGS_AS_ERRORS "Treats all compiler warnings as errors" TRUE)
-
+function(set_target_warnings target warningsAsErrors)
     if(MSVC)
         target_compile_options(${target} PRIVATE
             /permissive- # Enforces standards conformance
-            $<$<BOOL:${WARNINGS_AS_ERRORS}>:/WX>
+            $<$<BOOL:${warningsAsErrors}>:/WX>
             /W4 # all reasonable warnings
             /w14242 # 'identifier': conversion from 'type1' to 'type1', possible loss of data
             /w14254 # 'operator': conversion from 'type1:field_bits' to 'type2:field_bits', possible loss of data

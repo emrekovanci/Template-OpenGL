@@ -17,8 +17,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
 # apply custom compiler warnings
-set(WARNINGS_AS_ERRORS TRUE)
-set_target_warnings(${PROJECT_NAME})
+set_target_warnings(${PROJECT_NAME} TRUE)
 
 find_package(glad CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad::glad)
