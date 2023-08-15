@@ -2,15 +2,23 @@ cmake_minimum_required(VERSION 3.8)
 
 project(Template_OpenGL)
 
-set(CMAKE_CXX_STANDARD 17)
+# custom compiler warnings configuration
+include("cmake/CompilerWarnings.cmake")
 
 include_directories(include)
 
 add_executable(${PROJECT_NAME}
     "src/Shader.cpp"
     "src/Camera.cpp"
-    Main.cpp
+    "Main.cpp"
 )
+
+# c++ standard
+set(CMAKE_CXX_STANDARD 17)
+
+# apply custom compiler warnings
+set(WARNINGS_AS_ERRORS TRUE)
+set_target_warnings(${PROJECT_NAME})
 
 find_package(glad CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE glad::glad)
@@ -21,8 +29,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-network sfml-grap
 find_package(glm CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE glm::glm)
 
+# set the output directory for the executable
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})
 
+# copy resources directory after build
 add_custom_command(
     TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/resources $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
