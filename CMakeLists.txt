@@ -5,16 +5,16 @@ project(Template_OpenGL)
 # custom compiler warnings configuration
 include("cmake/CompilerWarnings.cmake")
 
-include_directories(include)
-
 add_executable(${PROJECT_NAME}
     "src/Shader.cpp"
     "src/Camera.cpp"
     "Main.cpp"
 )
 
+target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/include)
+
 # c++ standard
-set(CMAKE_CXX_STANDARD 17)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
 
 # apply custom compiler warnings
 set(WARNINGS_AS_ERRORS TRUE)
