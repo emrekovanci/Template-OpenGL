@@ -44,7 +44,6 @@
         },
         {
             "name": "x64-debug",
-            "displayName": "x64 Debug",
             "inherits": ["confs-windows", "flags-windows"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
@@ -52,7 +51,6 @@
         },
         {
             "name": "x64-release",
-            "displayName": "x64 Release",
             "inherits": ["confs-windows", "flags-windows"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
@@ -62,13 +60,11 @@
     "buildPresets": [
         {
             "name": "x64-debug",
-            "displayName": "x64 Debug",
             "verbose": true,
             "configurePreset": "x64-debug"
         },
         {
             "name": "x64-release",
-            "displayName": "x64 Release",
             "verbose": true,
             "configurePreset": "x64-release"
         }
