@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.26)
 
-project(Template_OpenGL)
+project(Template-OpenGL)
 
 add_executable(${PROJECT_NAME}
     "src/Shader.cpp"

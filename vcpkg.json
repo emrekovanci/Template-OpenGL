@@ -1,4 +1,5 @@
 {
+    "name": "template-opengl",
     "dependencies": [
         "glad",
         {
