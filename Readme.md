@@ -14,7 +14,7 @@ cmake --list-presets=all .
 
 
 ### Sourcing the Environment
-If you're building with Ninja and the Visual C++ toolset on Windows, set the environment before CMake is called to generate the build system. You can do it by calling [vcvarsall.bat](3) with the `architecture` argument.
+If you're building with Ninja and the Visual C++ toolset on Windows, set the environment before CMake is called to generate the build system. You can do it by calling [vcvarsall.bat][3] with the `architecture` argument.
 ```
 /path/to/vcvarsall.bat x64
 ```
