@@ -12,7 +12,7 @@ glm::mat4 Camera::GetViewMatrix() const
 
 void Camera::ProcessKeyboard(CameraMovement direction, float deltaTime)
 {
-    float velocity = MovementSpeed * deltaTime;
+    const float velocity = MovementSpeed * deltaTime;
     if (direction == CameraMovement::Forward) { Position += Front * velocity; }
     if (direction == CameraMovement::Backward) { Position -= Front * velocity; }
     if (direction == CameraMovement::Left) { Position -= Right * velocity; }
@@ -46,7 +46,7 @@ void Camera::ProcessMouseScroll(float yoffset)
 
 void Camera::updateCameraVectors()
 {
-    glm::vec3 front
+    const glm::vec3 front
     {
         cos(glm::radians(Yaw)) * cos(glm::radians(Pitch)),
         sin(glm::radians(Pitch)),
