@@ -10,7 +10,7 @@ namespace
 {
     bool isShaderCompiled(GLuint shader)
     {
-        GLint success;
+        GLint success {};
         glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 
         return success == GL_TRUE;
@@ -27,7 +27,7 @@ namespace
 
     bool isShaderProgramLinked(GLuint shaderProgram)
     {
-        GLint success;
+        GLint success {};
         glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
 
         return success == GL_TRUE;
