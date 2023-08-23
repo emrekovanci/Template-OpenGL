@@ -89,10 +89,10 @@ int main()
             {
                 switch (event.key.code)
                 {
-                    case sf::Keyboard::W: camera.ProcessKeyboard(CameraMovement::Forward, 1.0f); break;
-                    case sf::Keyboard::A: camera.ProcessKeyboard(CameraMovement::Left, 1.0f); break;
-                    case sf::Keyboard::S: camera.ProcessKeyboard(CameraMovement::Backward, 1.0f); break;
-                    case sf::Keyboard::D: camera.ProcessKeyboard(CameraMovement::Right, 1.0f); break;
+                    case sf::Keyboard::W: camera.processKeyboard(CameraMovement::Forward, 1.0f); break;
+                    case sf::Keyboard::A: camera.processKeyboard(CameraMovement::Left, 1.0f); break;
+                    case sf::Keyboard::S: camera.processKeyboard(CameraMovement::Backward, 1.0f); break;
+                    case sf::Keyboard::D: camera.processKeyboard(CameraMovement::Right, 1.0f); break;
                     case sf::Keyboard::Escape: window.close(); break;
                     default: break;
                 }
@@ -104,7 +104,7 @@ int main()
 
         shader.use();
         shader.setMat4("Model", model);
-        shader.setMat4("View", camera.GetViewMatrix());
+        shader.setMat4("View", camera.getViewMatrix());
         shader.setMat4("Projection", projection);
 
         glBindVertexArray(vao);

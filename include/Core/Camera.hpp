@@ -31,11 +31,11 @@ public:
 
     Camera();
 
-    glm::mat4 GetViewMatrix() const;
+    glm::mat4 getViewMatrix() const;
 
-    void ProcessKeyboard(CameraMovement direction, float deltaTime);
-    void ProcessMouseMovement(float xoffset, float yoffset, bool constrainPitch = true);
-    void ProcessMouseScroll(float yoffset);
+    void processKeyboard(CameraMovement direction, float deltaTime);
+    void processMouseMovement(float xoffset, float yoffset, bool constrainPitch = true);
+    void processMouseScroll(float yoffset);
 
 private:
     void updateCameraVectors();
