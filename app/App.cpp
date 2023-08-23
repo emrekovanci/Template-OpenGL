@@ -5,8 +5,8 @@
 #include <SFML/Window.hpp>
 #include <glm/ext/matrix_transform.hpp>
 
-#include "Shader.hpp"
-#include "Camera.hpp"
+#include <Core/Shader.hpp>
+#include <Core/Camera.hpp>
 
 void displayGpuInfo()
 {
