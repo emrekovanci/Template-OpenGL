@@ -48,12 +48,11 @@ namespace
         if (file)
         {
             destination = { std::istreambuf_iterator<char> { file }, std::istreambuf_iterator<char> {} };
-            return true;
         }
 
-        return false;
+        return file.is_open();
     }
-}
+} // namespace
 
 Shader::Shader(Shader&& source) noexcept :
     _shaderProgram { std::exchange(source._shaderProgram, 0U) },
