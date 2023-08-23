@@ -12,7 +12,6 @@
             "generator": "Ninja",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
             "installDir": "${sourceDir}/out/install/${presetName}",
-            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": "cl.exe",
                 "CMAKE_CXX_EXTENSIONS": "OFF"
@@ -46,6 +45,11 @@
             }
         },
         {
+            "name": "vcpkg",
+            "hidden": true,
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        },
+        {
             "name": "clang-tidy",
             "hidden": true,
             "cacheVariables": {
@@ -54,14 +58,14 @@
         },
         {
             "name": "x64-debug",
-            "inherits": ["confs-windows", "flags-windows"],
+            "inherits": ["confs-windows", "flags-windows", "vcpkg"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
             "name": "x64-release",
-            "inherits": ["confs-windows", "flags-windows"],
+            "inherits": ["confs-windows", "flags-windows", "vcpkg"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
