@@ -1,2 +1,10 @@
-.vs/
+# build folders
 out/
+
+# ide folders
+.vs/
+.vscode/
+.idea/
+
+# user conf
+CMakeUserPresets.json
