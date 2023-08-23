@@ -8,6 +8,16 @@
 #include "Shader.hpp"
 #include "Camera.hpp"
 
+void displayGpuInfo()
+{
+    std::cout
+        << "---------------------------------------------\n"
+        << "Vendor:  \t" << glGetString(GL_VENDOR) <<   '\n'
+        << "Version: \t" << glGetString(GL_VERSION) <<  '\n'
+        << "Renderer:\t" << glGetString(GL_RENDERER) << '\n'
+        << "---------------------------------------------\n";
+}
+
 int main()
 {
     sf::ContextSettings settings;
@@ -24,11 +34,10 @@ int main()
         return EXIT_FAILURE;
     }
 
-    std::cout << "Vendor:" << glGetString(GL_VENDOR) << '\n';
-    std::cout << "Version:" << glGetString(GL_VERSION) << '\n';
-    std::cout << "Renderer:" << glGetString(GL_RENDERER) << '\n';
+    displayGpuInfo();
 
-    Shader shader("resources/shaders/vertex.glsl", "resources/shaders/fragment.glsl");
+    Shader shader;
+    shader.loadFromFile("resources/shaders/vertex.glsl", "resources/shaders/fragment.glsl");
 
     Camera camera;
 
