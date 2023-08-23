@@ -8,5 +8,9 @@ project(
 	LANGUAGES CXX
 )
 
+find_package(glad CONFIG REQUIRED)
+find_package(SFML COMPONENTS system window graphics CONFIG REQUIRED)
+find_package(glm CONFIG REQUIRED)
+
 add_subdirectory(src)
 add_subdirectory(app)

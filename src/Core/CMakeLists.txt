@@ -20,11 +20,9 @@ add_library(CoreLibrary STATIC ${LIBRARY_HEADERS} ${LIBRARY_SOURCES})
 target_include_directories(CoreLibrary PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 # depends on glad
-find_package(glad CONFIG REQUIRED)
 target_link_libraries(CoreLibrary PUBLIC glad::glad)
 
 # depends on glm
-find_package(glm CONFIG REQUIRED)
 target_link_libraries(CoreLibrary PUBLIC glm::glm)
 
 # all users of this library will need at least C++17

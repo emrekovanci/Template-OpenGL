@@ -4,7 +4,6 @@ add_executable(${PROJECT_NAME} App.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE CoreLibrary)
 
 # depends on SFML
-find_package(SFML COMPONENTS system window graphics CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-network sfml-graphics sfml-window)
 
 # set the output directory for the executable
