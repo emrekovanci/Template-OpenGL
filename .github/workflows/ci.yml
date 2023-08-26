@@ -27,6 +27,10 @@ jobs:
         include:
           - os: windows-2022
             compiler: msvc
+            build_type: Debug
+          - os: windows-2022
+            compiler: msvc
+            build_type: Release
 
     steps:
       - uses: actions/checkout@v3
