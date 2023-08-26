@@ -41,8 +41,7 @@ jobs:
           vcpkg: true
 
       - name: Activate the Ninja
-        if: ${{ contains(runner.os, 'Linux') }}
-        run: echo "home/runner/ninja" >> $GITHUB_PATH
+        run: ninja --version
 
       - name: Configure
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
