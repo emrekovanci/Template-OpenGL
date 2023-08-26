@@ -86,7 +86,6 @@ FixNamespaceComments: true
 NamespaceIndentation: None
 
 # Derive
-DeriveLineEnding: false
 DerivePointerAlignment: false
 
 # Empty lines
@@ -149,7 +148,7 @@ SpacesInParentheses: false
 SpacesInSquareBrackets: false
 
 # Line endings
-UseCRLF: false
+LineEnding: LF
 
 # Qualifiers (const, volatile, static, etc)
 QualifierAlignment: Custom
