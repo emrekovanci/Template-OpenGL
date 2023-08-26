@@ -19,13 +19,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Setup Ninja
-      uses: ashutoshvarma/setup-ninja@master
+    - name: Setup Cpp
+      uses: aminya/setup-cpp@v1
       with:
-        version: 1.10.0
+          vcvarsall: ${{ contains(matrix.os, 'windows' )}}
+          cmake: false
+          ninja: true
+          vcpkg: false
 
-    - name: Install vcpkg
-      uses: friendlyanon/setup-vcpkg@v1
 
     - name: Configure
       shell: pwsh
