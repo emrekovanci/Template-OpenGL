@@ -38,17 +38,6 @@
             }
         },
         {
-            "name": "confs-linux-common",
-            "description": "Linux settings for GCC and Clang toolchains",
-            "hidden": true,
-            "inherits": "confs-common",
-            "condition": {
-                "type": "notEquals",
-                "lhs": "${hostSystemName}",
-                "rhs": "Windows"
-            }
-        },
-        {
             "name": "confs-windows-msvc-common",
             "description": "Note that all the flags after /W4 are required for MSVC to conform to the language standard",
             "hidden": true,
@@ -68,7 +57,7 @@
             }
         },
         {
-            "name": "confs-windows-clang-common",
+            "name": "confs-windows-llvm-common",
             "hidden": true,
             "inherits": "confs-windows-common",
             "cacheVariables": {
@@ -81,6 +70,25 @@
                     "codeAnalysisRuleset": "CppCoreCheckRules.ruleset",
                     "disableExternalAnalysis": true
                 }
+            }
+        },
+        {
+            "name": "confs-linux-common",
+            "description": "Linux settings for GCC and Clang toolchains",
+            "hidden": true,
+            "inherits": "confs-common",
+            "condition": {
+                "type": "notEquals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "confs-linux-llvm-common",
+            "hidden": true,
+            "inherits": "confs-linux-common",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "clang++"
             }
         },
         {
@@ -106,14 +114,28 @@
         },
         {
             "name": "Windows-llvm-Debug",
-            "inherits": ["confs-windows-clang-common"],
+            "inherits": ["confs-windows-llvm-common"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
             "name": "Windows-llvm-Release",
-            "inherits": ["confs-windows-clang-common"],
+            "inherits": ["confs-windows-llvm-common"],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "Linux-llvm-Debug",
+            "inherits": "[confs-linux-llvm-common]",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Linux-llvm-Release",
+            "inherits": "[confs-linux-llvm-common]",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -135,6 +157,14 @@
         {
             "name": "Windows-llvm-Release",
             "configurePreset": "Windows-llvm-Release"
+        },
+        {
+            "name": "Linux-llvm-Debug",
+            "configurePreset": "Linux-llvm-Debug"
+        },
+        {
+            "name": "Linux-llvm-Release",
+            "configurePreset": "Linux-llvm-Release"
         }
     ]
 }
