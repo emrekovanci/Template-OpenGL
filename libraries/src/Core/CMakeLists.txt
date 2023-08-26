@@ -1,5 +1,5 @@
-set(INCROOT ${PROJECT_SOURCE_DIR}/include/Core)
-set(SRCROOT ${PROJECT_SOURCE_DIR}/src/Core)
+set(INCROOT ${PROJECT_SOURCE_DIR}/libraries/include/Core)
+set(SRCROOT ${PROJECT_SOURCE_DIR}/libraries/src/Core)
 
 # all header files
 set(LIBRARY_HEADERS
@@ -17,7 +17,7 @@ set(LIBRARY_SOURCES
 add_library(CoreLibrary STATIC ${LIBRARY_HEADERS} ${LIBRARY_SOURCES})
 
 # we need this directory, and users of our library will need it too
-target_include_directories(CoreLibrary PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(CoreLibrary PUBLIC ${PROJECT_SOURCE_DIR}/libraries/include)
 
 # depends on glad
 target_link_libraries(CoreLibrary PUBLIC glad::glad)
