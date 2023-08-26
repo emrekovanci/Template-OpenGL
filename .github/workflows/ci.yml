@@ -40,10 +40,6 @@ jobs:
           ninja: true
           vcpkg: true
 
-      - name: Activate the Environment
-        if: ${{ contains(matrix.os, 'ubuntu') }}
-        run: source ~/.cpprc
-
       - name: Configure
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
 
