@@ -100,10 +100,12 @@ IncludeCategories:
   - Priority: 1
     Regex: '^\"(.+)\"$'
   - Priority: 2
-    Regex: '^<(glad|gl|X11|jni|android|stb_|GLES2|vorbis|catch2)'
+    Regex: '^<Core\/'
   - Priority: 3
-    Regex: '^<([^c](.+)|coroutine|charconv|chrono|complex|concepts|condition_variable)>$'
+    Regex: '^<(glad|gl|X11|jni|android|stb_|GLES2|vorbis|catch2)'
   - Priority: 4
+    Regex: '^<([^c](.+)|coroutine|charconv|chrono|complex|concepts|condition_variable)>$'
+  - Priority: 5
     Regex: '^<c(.+)>$'
 SortIncludes: true
 SortUsingDeclarations: true
