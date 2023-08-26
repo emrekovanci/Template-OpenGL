@@ -41,7 +41,7 @@ jobs:
           vcpkg: true
 
       - name: Print Path
-        run: echo $GITHUB_PATH
+        run: cd /home/runner && ls -lah
 
       - name: Configure
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
