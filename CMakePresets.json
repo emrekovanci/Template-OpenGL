@@ -59,7 +59,6 @@
             },
             "vendor": {
                 "microsoft.com/VisualStudioSettings/CMake/1.0": {
-                    "hostOS": ["Windows"],
                     "intelliSenseMode": "windows-msvc-x64",
                     "enableMicrosoftCodeAnalysis": true,
                     "codeAnalysisRuleset": "CppCoreCheckRules.ruleset",
@@ -76,7 +75,6 @@
             },
             "vendor": {
                 "microsoft.com/VisualStudioSettings/CMake/1.0": {
-                    "hostOS": ["Windows"],
                     "intelliSenseMode": "windows-clang-x64",
                     "enableMicrosoftCodeAnalysis": true,
                     "codeAnalysisRuleset": "CppCoreCheckRules.ruleset",
