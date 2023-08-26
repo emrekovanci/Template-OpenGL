@@ -2,10 +2,13 @@
 
 root = true
 
-[*{c,cpp,cxx,h,hpp,hxx,cmake,json,txt}]
+[*]
 end_of_line = lf
 insert_final_newline = true
 charset = utf-8
 indent_style = space
 indent_size = 4
 trim_trailing_whitespace = true
+
+[*.yml]
+indent_size = 2
