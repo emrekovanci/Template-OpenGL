@@ -38,7 +38,7 @@ jobs:
           vcvarsall: ${{ contains(matrix.os, 'windows') }}
           cmake: true
           ninja: true
-          vcpkg: true
+          vcpkg: false
 
       - name: Configure
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
