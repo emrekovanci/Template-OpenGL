@@ -18,6 +18,8 @@ jobs:
         os: 
           - ubuntu-22.04
           - windows-2022
+        compiler:
+          - llvm
 
     steps:
     - uses: actions/checkout@v3
