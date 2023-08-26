@@ -46,7 +46,7 @@ jobs:
         run: >-
           sudo apt-get update -qq
 
-          sudo apt-get install libx11-dev libxrandr-dev libxi-dev libudev-dev libgl1-mesa-dev -y -q
+          sudo apt-get install libudev-dev libx11-dev libxrandr-dev libxcursor-dev libxi-dev libgl1-mesa-dev -y -q
 
       - name: CMake Configure
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
