@@ -121,8 +121,9 @@ PenaltyExcessCharacter: 5
 PenaltyIndentedWhitespace: 1
 PenaltyReturnTypeOnItsOwnLine: 500
 
-# Pointer alignment
+# Pointer & Reference alignment
 PointerAlignment: Left
+ReferenceAlignment: Pointer
 
 # Comments
 ReflowComments: false
