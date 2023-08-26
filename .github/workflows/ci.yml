@@ -19,6 +19,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Setup Ninja
+      uses: ashutoshvarma/setup-ninja@master
+      with:
+        version: 1.10.0
+
     - name: Install vcpkg
       uses: friendlyanon/setup-vcpkg@v1
 
