@@ -41,9 +41,10 @@ jobs:
           vcpkg: false
 
       - name: Install SFML Dependencies
-        if: ${{ contains(runner.os, 'Linux') }}
+        if: ${{ contains(matrix.os, 'ubuntu') }}
         run: >-
           sudo apt-get update -qq
+
           sudo apt-get install libx11-dev libxrandr-dev libxi-dev libudev-dev libgl1-mesa-dev -y -q
 
       - name: Configure
