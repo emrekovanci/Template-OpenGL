@@ -38,7 +38,7 @@
         },
         {
             "name": "confs-linux-common",
-            "description": "Linux settings for gcc and clang toolchains",
+            "description": "Linux settings for GCC and Clang toolchains",
             "hidden": true,
             "inherits": "confs-common",
             "condition": {
