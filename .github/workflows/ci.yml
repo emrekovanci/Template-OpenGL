@@ -20,6 +20,9 @@ jobs:
           - windows-2022
         compiler:
           - llvm
+        build_type:
+          - Debug
+          - Release
 
         include:
           - os: windows-2022
@@ -47,7 +50,7 @@ jobs:
       - name: CMake Configure
         env:
           VCPKG_ROOT: '~/vcpkg'
-        run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
+        run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-${{ matrix.build_type }}
 
       - name: CMake Build
-        run: cmake --build --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
+        run: cmake --build --preset=${{ runner.os }}-${{ matrix.compiler }}-${{ matrix.build_type }}
