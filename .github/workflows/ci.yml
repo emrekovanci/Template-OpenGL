@@ -1,5 +1,4 @@
 name: ci
-
 on:
   pull_request:
   release:
@@ -9,8 +8,13 @@ on:
       - master
 
 jobs:
-  build:
+  Test:
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ${{ matrix.os }}
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
     strategy:
       fail-fast: false
       matrix:
@@ -18,29 +22,21 @@ jobs:
           - ubuntu-22.04
           - windows-2022
         compiler:
+          # you can specify the version after `-` like "llvm-13.0.0".
           - llvm
-        build_type:
-          - debug
-          - release
+
         include:
           - os: windows-2022
-          - compiler: msvc
-          - build_type: debug
+            compiler: msvc
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Setup Cpp
-      uses: aminya/setup-cpp@v1
-      with:
+      - name: Setup Cpp
+        uses: aminya/setup-cpp@v1
+        with:
+          compiler: ${{ matrix.compiler }}
           vcvarsall: ${{ contains(matrix.os, 'windows' )}}
           cmake: true
           ninja: true
           vcpkg: true
-
-    - name: Configure
-      shell: pwsh
-      run: cmake --preset=x64-debug
-
-    - name: Build
-      run: cmake --build --preset=x64-debug
