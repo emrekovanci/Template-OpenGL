@@ -1,12 +1,9 @@
 name: ci
+
 on:
-  pull_request:
-  release:
-    types: [published]
-  push:
-    branches:
-      - main
-      - master
+  - push
+  - pull_request
+  - workflow_dispatch
 
 jobs:
   build:
@@ -47,7 +44,7 @@ jobs:
           vcpkg: true
 
       - name: Install SFML Dependencies
-        if: ${{ runner.os }} == 'Linux'
+        if: runner.os == 'Linux'
         run: >-
           sudo apt-get update -qq
 
