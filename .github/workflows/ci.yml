@@ -1,29 +1,22 @@
 name: ci
 
 on:
+  pull_request:
+  release:
+    types: [published]
   push:
     branches:
       - master
-
+    
 jobs:
   build:
     runs-on: ${{ matrix.os }}
 
     strategy:
       fail-fast: false
-
+      
       matrix:
-        os:
-          - ubuntu-22.04
-          - windows-2022
-        compiler:
-          - llvm
-        build_type:
-          - debug
-          - release
-        include:
-          - os: windows-2022
-          - compiler: msvc
+        os: [ubuntu-latest, windows-2022]
 
     steps:
     - uses: actions/checkout@v3
@@ -32,12 +25,13 @@ jobs:
       uses: aminya/setup-cpp@v1
       with:
           vcvarsall: ${{ contains(matrix.os, 'windows' )}}
-          cmake: true
+          cmake: false
           ninja: true
-          vcpkg: true
+          vcpkg: false
 
     - name: Configure
-      run: cmake --preset=$("${{matrix.os}}".split("-")[0])-${{matrix.compiler}}-${{matrix.build_type}}
+      shell: pwsh
+      run: cmake --preset=x64-debug
 
     - name: Build
       run: cmake --build --preset=x64-debug
