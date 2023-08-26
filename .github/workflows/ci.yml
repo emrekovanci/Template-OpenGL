@@ -40,6 +40,9 @@ jobs:
           ninja: true
           vcpkg: true
 
+      - name: Print Path
+        run: echo $GITHUB_PATH
+
       - name: Configure
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
 
