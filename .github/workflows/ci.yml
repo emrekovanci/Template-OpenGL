@@ -20,6 +20,9 @@ jobs:
           - windows-2022
         compiler:
           - llvm
+        build_type:
+          - debug
+          - release
 
     steps:
     - uses: actions/checkout@v3
