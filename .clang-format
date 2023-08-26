@@ -84,7 +84,7 @@ BraceWrapping:
 # Namespaces
 CompactNamespaces: false
 FixNamespaceComments: true
-NamespaceIndentation: None
+NamespaceIndentation: All
 
 # Derive
 DerivePointerAlignment: false
