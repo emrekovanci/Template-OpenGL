@@ -100,42 +100,42 @@
         },
         {
             "name": "Windows-msvc-Debug",
-            "inherits": ["confs-windows-msvc-common"],
+            "inherits": "confs-windows-msvc-common",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
             "name": "Windows-msvc-Release",
-            "inherits": ["confs-windows-msvc-common"],
+            "inherits": "confs-windows-msvc-common",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
         },
         {
             "name": "Windows-llvm-Debug",
-            "inherits": ["confs-windows-llvm-common"],
+            "inherits": "confs-windows-llvm-common",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
             "name": "Windows-llvm-Release",
-            "inherits": ["confs-windows-llvm-common"],
+            "inherits": "confs-windows-llvm-common",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
         },
         {
             "name": "Linux-llvm-Debug",
-            "inherits": "[confs-linux-llvm-common]",
+            "inherits": "confs-linux-llvm-common",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
             "name": "Linux-llvm-Release",
-            "inherits": "[confs-linux-llvm-common]",
+            "inherits": "confs-linux-llvm-common",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
