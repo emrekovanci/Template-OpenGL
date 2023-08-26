@@ -46,7 +46,7 @@ jobs:
 
       - name: CMake Configure
         env:
-          VCPKG_ROOT: '${{ env.HOME }}/vcpkg'
+          VCPKG_ROOT: '~/vcpkg'
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
 
       - name: CMake Build
