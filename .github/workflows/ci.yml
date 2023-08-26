@@ -22,8 +22,7 @@ jobs:
           - ubuntu-22.04
           - windows-2022
         compiler:
-          # you can specify the version after `-` like "llvm-13.0.0".
-          - llvm
+          - clang
 
         include:
           - os: windows-2022
@@ -40,3 +39,9 @@ jobs:
           cmake: true
           ninja: true
           vcpkg: true
+
+      - name: Configure
+        run: cmake --preset=$("${{ matrix.os }}".split("-")[0])-${{ matrix.compiler }}-debug
+
+      - name: Build
+        run: cmake --build --preset=$("${{ matrix.os }}".split("-")[0])-${{ matrix.compiler }}-debug
