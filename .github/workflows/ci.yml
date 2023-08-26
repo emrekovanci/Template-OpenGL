@@ -40,9 +40,6 @@ jobs:
           ninja: true
           vcpkg: true
 
-      - name: Activate the Ninja
-        run: ninja --version
-
       - name: Configure
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
 
