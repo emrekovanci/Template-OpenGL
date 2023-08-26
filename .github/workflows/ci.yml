@@ -1,10 +1,10 @@
 name: Continuous Integration
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+  push:
+    branches:
+      - master
     
 jobs:
   build:
@@ -14,7 +14,17 @@ jobs:
       fail-fast: false
       
       matrix:
-        os: [ubuntu-latest, windows-2022]
+        os: 
+          - ubuntu-22.04
+          - windows-2022
+        compiler:
+          - llvm
+        build_type:
+          - debug
+          - release
+        include:
+          - os: windows-2022
+          - compiler: msvc
 
     steps:
     - uses: actions/checkout@v3
@@ -23,14 +33,12 @@ jobs:
       uses: aminya/setup-cpp@v1
       with:
           vcvarsall: ${{ contains(matrix.os, 'windows' )}}
-          cmake: false
+          cmake: true
           ninja: true
-          vcpkg: false
-
+          vcpkg: true
 
     - name: Configure
-      shell: pwsh
-      run: cmake --preset=x64-debug
+      run: cmake --preset=$("${{matrix.os}}".split("-")[0])-${{matrix.compiler}}-${{matrix.build_type}}
 
     - name: Build
       run: cmake --build --preset=x64-debug
