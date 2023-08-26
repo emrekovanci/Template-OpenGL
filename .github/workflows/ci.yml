@@ -35,10 +35,14 @@ jobs:
         uses: aminya/setup-cpp@v1
         with:
           compiler: ${{ matrix.compiler }}
-          vcvarsall: ${{ contains(matrix.os, 'windows')}}
+          vcvarsall: ${{ contains(matrix.os, 'windows') }}
           cmake: true
           ninja: true
           vcpkg: true
+
+      - name: Activate the Environment
+        if: ${{ contains(matrix.os, 'ubuntu') }}
+        run: source ~/.cpprc
 
       - name: Configure
         run: cmake --preset=${{ runner.os }}-${{ matrix.compiler }}-Debug
