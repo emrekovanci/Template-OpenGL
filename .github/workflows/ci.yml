@@ -47,7 +47,7 @@ jobs:
           vcpkg: true
 
       - name: Install SFML Dependencies
-        if: runner.os == 'Linux'
+        if: ${{ runner.os }} == 'Linux'
         run: >-
           sudo apt-get update -qq
 
