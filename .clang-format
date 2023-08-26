@@ -149,6 +149,7 @@ SpacesInSquareBrackets: false
 
 # Line endings
 LineEnding: LF
+InsertNewlineAtEOF: true
 
 # Qualifiers (const, volatile, static, etc)
 QualifierAlignment: Custom
