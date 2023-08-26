@@ -91,28 +91,28 @@
             }
         },
         {
-            "name": "win-msvc-debug",
+            "name": "windows-msvc-debug",
             "inherits": ["confs-windows-msvc-common"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
-            "name": "win-msvc-release",
+            "name": "windows-msvc-release",
             "inherits": ["confs-windows-msvc-common"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
         },
         {
-            "name": "win-clang-debug",
+            "name": "windows-clang-debug",
             "inherits": ["confs-windows-clang-common"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
-            "name": "win-clang-release",
+            "name": "windows-clang-release",
             "inherits": ["confs-windows-clang-common"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
@@ -121,20 +121,20 @@
     ],
     "buildPresets": [
         {
-            "name": "win-msvc-debug",
-            "configurePreset": "win-msvc-debug"
+            "name": "windows-msvc-debug",
+            "configurePreset": "windows-msvc-debug"
         },
         {
-            "name": "win-msvc-release",
-            "configurePreset": "win-msvc-release"
+            "name": "windows-msvc-release",
+            "configurePreset": "windows-msvc-release"
         },
         {
-            "name": "win-clang-debug",
-            "configurePreset": "win-clang-debug"
+            "name": "windows-clang-debug",
+            "configurePreset": "windows-clang-debug"
         },
         {
-            "name": "win-clang-release",
-            "configurePreset": "win-clang-release"
+            "name": "windows-clang-release",
+            "configurePreset": "windows-clang-release"
         }
     ]
 }
