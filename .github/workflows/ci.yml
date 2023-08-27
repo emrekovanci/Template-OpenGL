@@ -32,7 +32,8 @@ jobs:
             build_type: Release
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       - name: Install Cpp Environment
         uses: aminya/setup-cpp@v1
