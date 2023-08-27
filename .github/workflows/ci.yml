@@ -58,3 +58,28 @@ jobs:
 
       - name: CMake Build
         run: cmake --build --preset=${{ runner.os }}-${{ matrix.compiler }}-${{ matrix.build_type }}
+
+  format:
+    name: Formatting
+    runs-on: ubuntu-22.04
+
+    strategy:
+      fail-fast: false
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: |
+          sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' -y
+          sudo apt-get update -qq
+          sudo apt-get install clang-format-16 -y -q
+
+      - name: Format Code
+        run: cmake -DCLANG_FORMAT_EXECUTABLE=clang-format-16 -P cmake/Format.cmake
+
+      - name: Check Formatting
+        run: git diff --exit-code
+
+
