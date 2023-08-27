@@ -5,6 +5,9 @@ on:
   - pull_request
   - workflow_dispatch
 
+env:
+  - CLANG_FORMAT_VERSION: 16
+
 jobs:
   build:
     name: ${{ matrix.os }} ${{ matrix.compiler }} ${{ matrix.build_type }}
@@ -70,15 +73,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Install Dependencies
-        run: |
-          sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 15CF4D18AF4F7421
-          sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' -y
-          sudo apt-get update -qq
-          sudo apt-get install clang-format-16 colordiff -y -q
+      - name: Install Clang-Format
+        uses: aminya/setup-cpp@v1
+        with:
+          clangformat: ${{ env.CLANG_FORMAT_VERSION }}
+
+      - name: Install ColorDiff
+        run: sudo apt-get install colordiff -y -q
 
       - name: Format Code
-        run: cmake -DCLANG_FORMAT_EXECUTABLE=clang-format-16 -P cmake/Format.cmake
+        run: cmake -DCLANG_FORMAT_EXECUTABLE=clang-format-${{ env.CLANG_FORMAT_VERSION }} -P cmake/Format.cmake
 
       - name: Check Formatting
         run: |
