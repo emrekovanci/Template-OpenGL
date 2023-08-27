@@ -234,11 +234,13 @@
         },
         {
             "name": "macOS-gcc-Debug",
-            "configurePreset": "macOS-gcc-Debug"
+            "configurePreset": "macOS-gcc-Debug",
+            "verbose": true
         },
         {
             "name": "macOS-gcc-Release",
-            "configurePreset": "macOS-gcc-Release"
+            "configurePreset": "macOS-gcc-Release",
+            "verbose": true
         }
     ]
 }
