@@ -6,7 +6,7 @@ on:
   - workflow_dispatch
 
 env:
-  - CLANG_FORMAT_VERSION: 16
+  CLANG_FORMAT_VERSION: 16
 
 jobs:
   build:
