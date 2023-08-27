@@ -29,7 +29,8 @@ AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Left
 AlignOperands: false
 AlignTrailingComments:
-  Kind: Never
+  Kind: Always
+  OverEmptyLines: 1
 
 # Allow
 AllowAllArgumentsOnNextLine: false
