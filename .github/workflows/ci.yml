@@ -81,6 +81,8 @@ jobs:
         run: cmake -DCLANG_FORMAT_EXECUTABLE=clang-format-16 -P cmake/Format.cmake
 
       - name: Check Formatting
-        run: git diff --exit-code
+        run: |
+          git config --global color.ui auto
+          git diff --exit-code
 
 
