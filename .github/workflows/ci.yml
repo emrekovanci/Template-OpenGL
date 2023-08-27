@@ -78,15 +78,10 @@ jobs:
         with:
           clangformat: ${{ env.CLANG_FORMAT_VERSION }}
 
-      - name: Install ColorDiff
-        run: sudo apt-get install colordiff -y -q
-
       - name: Format Code
         run: cmake -DCLANG_FORMAT_EXECUTABLE=clang-format-${{ env.CLANG_FORMAT_VERSION }} -P cmake/Format.cmake
 
       - name: Check Formatting
         run: |
-          git diff --color
-          git diff --quiet --exit-code
-
+          git diff --color --exit-code
 
