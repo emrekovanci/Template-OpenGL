@@ -139,6 +139,20 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
+        },
+        {
+            "name": "macOS-llvm-Debug",
+            "inherits": "confs-linux-llvm-common",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "macOS-llvm-Release",
+            "inherits": "confs-linux-llvm-common",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
         }
     ],
     "buildPresets": [
@@ -165,6 +179,14 @@
         {
             "name": "Linux-llvm-Release",
             "configurePreset": "Linux-llvm-Release"
+        },
+        {
+            "name": "macOS-llvm-Debug",
+            "configurePreset": "macOS-llvm-Debug"
+        },
+        {
+            "name": "macOS-llvm-Release",
+            "configurePreset": "macOS-llvm-Release"
         }
     ]
 }
