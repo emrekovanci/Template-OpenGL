@@ -92,6 +92,14 @@
             }
         },
         {
+            "name": "confs-linux-gcc-common",
+            "hidden": true,
+            "inherits": "confs-linux-common",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
             "name": "clang-tidy",
             "hidden": true,
             "cacheVariables": {
@@ -141,6 +149,20 @@
             }
         },
         {
+            "name": "Linux-gcc-Debug",
+            "inherits": "confs-linux-gcc-common",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Linux-gcc-Release",
+            "inherits": "confs-linux-gcc-common",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
             "name": "macOS-llvm-Debug",
             "inherits": "confs-linux-llvm-common",
             "cacheVariables": {
@@ -150,6 +172,20 @@
         {
             "name": "macOS-llvm-Release",
             "inherits": "confs-linux-llvm-common",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "macOS-gcc-Debug",
+            "inherits": "confs-linux-gcc-common",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "macOS-gcc-Release",
+            "inherits": "confs-linux-gcc-common",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
@@ -181,12 +217,28 @@
             "configurePreset": "Linux-llvm-Release"
         },
         {
+            "name": "Linux-gcc-Debug",
+            "configurePreset": "Linux-gcc-Debug"
+        },
+        {
+            "name": "Linux-gcc-Release",
+            "configurePreset": "Linux-gcc-Release"
+        },
+        {
             "name": "macOS-llvm-Debug",
             "configurePreset": "macOS-llvm-Debug"
         },
         {
             "name": "macOS-llvm-Release",
             "configurePreset": "macOS-llvm-Release"
+        },
+        {
+            "name": "macOS-gcc-Debug",
+            "configurePreset": "macOS-gcc-Debug"
+        },
+        {
+            "name": "macOS-gcc-Release",
+            "configurePreset": "macOS-gcc-Release"
         }
     ]
 }
