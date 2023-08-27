@@ -21,7 +21,7 @@ TabWidth: 4
 UseTab: Never
 
 # Alignment
-AlignAfterOpenBracket: DontAlign
+AlignAfterOpenBracket: BlockIndent
 AlignConsecutiveAssignments: false
 AlignConsecutiveBitFields: Consecutive
 AlignConsecutiveDeclarations: false
@@ -91,17 +91,6 @@ IncludeCategories:
     Regex: '^<c(.+)>$'
 SortIncludes: true
 SortUsingDeclarations: true
-
-# Penalties
-PenaltyBreakAssignment: 1000
-PenaltyBreakBeforeFirstCallParameter: 1000
-PenaltyBreakComment: 200
-PenaltyBreakFirstLessLess: 100
-PenaltyBreakString: 1
-PenaltyBreakTemplateDeclaration: 0
-PenaltyExcessCharacter: 5
-PenaltyIndentedWhitespace: 1
-PenaltyReturnTypeOnItsOwnLine: 500
 
 # Pointer & Reference alignment
 PointerAlignment: Left
