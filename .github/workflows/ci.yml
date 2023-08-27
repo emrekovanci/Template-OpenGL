@@ -86,7 +86,7 @@ jobs:
 
       - name: Check Formatting
         run: |
-          git diff --color=always | colordiff
+          git diff --color
           git diff --quiet --exit-code
 
 
