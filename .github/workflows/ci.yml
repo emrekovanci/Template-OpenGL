@@ -21,9 +21,14 @@ jobs:
           - windows-2022
         compiler:
           - llvm
+          - gcc
         build_type:
           - Debug
           - Release
+
+        exclude:
+          - os: windows-2022
+            compiler: gcc
 
         include:
           - os: windows-2022
