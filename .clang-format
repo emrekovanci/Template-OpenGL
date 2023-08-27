@@ -70,9 +70,6 @@ CompactNamespaces: false
 FixNamespaceComments: true
 NamespaceIndentation: All
 
-# Derive
-DerivePointerAlignment: false
-
 # Empty lines
 EmptyLineBeforeAccessModifier: Always
 KeepEmptyLinesAtTheStartOfBlocks: true
@@ -96,7 +93,8 @@ IncludeCategories:
 SortIncludes: true
 SortUsingDeclarations: true
 
-# Pointer & Reference alignment
+# Pointer & Reference Alignment
+DerivePointerAlignment: false
 PointerAlignment: Left
 ReferenceAlignment: Pointer
 
