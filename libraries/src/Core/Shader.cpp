@@ -56,8 +56,8 @@ namespace
 } // namespace
 
 Shader::Shader(Shader&& source) noexcept :
-    _shaderProgram { std::exchange(source._shaderProgram, 0U) },
-    _uniforms { std::move(source._uniforms) }
+    m_shaderProgram { std::exchange(source.m_shaderProgram, 0U) },
+    m_uniforms { std::move(source.m_uniforms) }
 {
 }
 
@@ -70,22 +70,22 @@ Shader& Shader::operator=(Shader&& source) noexcept
     }
 
     // destroy current program
-    if (_shaderProgram)
+    if (m_shaderProgram)
     {
-        glDeleteProgram(_shaderProgram);
+        glDeleteProgram(m_shaderProgram);
     }
 
-    _shaderProgram = std::exchange(source._shaderProgram, 0U);
-    _uniforms = std::move(source._uniforms);
+    m_shaderProgram = std::exchange(source.m_shaderProgram, 0U);
+    m_uniforms = std::move(source.m_uniforms);
 
     return *this;
 }
 
 Shader::~Shader()
 {
-    if (_shaderProgram)
+    if (m_shaderProgram)
     {
-        glDeleteProgram(_shaderProgram);
+        glDeleteProgram(m_shaderProgram);
     }
 }
 
@@ -110,7 +110,7 @@ bool Shader::loadFromFile(const Path& vertexShaderFilePath, const Path& fragment
 
 void Shader::use() const
 {
-    glUseProgram(_shaderProgram);
+    glUseProgram(m_shaderProgram);
 }
 
 void Shader::setBool(const std::string& name, bool value)
@@ -176,14 +176,14 @@ void Shader::setMat4(const std::string& name, const glm::mat4& mat)
 bool Shader::compile(const char* vertexShaderCode, const char* fragmentShaderCode)
 {
     // destroy the shader if it was already created
-    if (_shaderProgram)
+    if (m_shaderProgram)
     {
-        glDeleteShader(_shaderProgram);
-        _shaderProgram = 0;
-        _uniforms.clear();
+        glDeleteShader(m_shaderProgram);
+        m_shaderProgram = 0;
+        m_uniforms.clear();
     }
 
-    _shaderProgram = glCreateProgram();
+    m_shaderProgram = glCreateProgram();
 
     // create, compile and attach
     auto createShader = [this](const char* shaderCode, GLenum shaderType) -> bool
@@ -196,11 +196,11 @@ bool Shader::compile(const char* vertexShaderCode, const char* fragmentShaderCod
         {
             std::cerr << "Failed to compile shader!\n" << getShaderLog(shader);
             glDeleteShader(shader);
-            glDeleteProgram(_shaderProgram);
+            glDeleteProgram(m_shaderProgram);
             return false;
         }
 
-        glAttachShader(_shaderProgram, shader);
+        glAttachShader(m_shaderProgram, shader);
         glDeleteShader(shader);
         return true;
     };
@@ -210,11 +210,11 @@ bool Shader::compile(const char* vertexShaderCode, const char* fragmentShaderCod
         return false;
     }
 
-    glLinkProgram(_shaderProgram);
-    if (!isShaderProgramLinked(_shaderProgram))
+    glLinkProgram(m_shaderProgram);
+    if (!isShaderProgramLinked(m_shaderProgram))
     {
-        std::cerr << "Failed to link shader!\n" << getShaderProgramLog(_shaderProgram);
-        glDeleteProgram(_shaderProgram);
+        std::cerr << "Failed to link shader!\n" << getShaderProgramLog(m_shaderProgram);
+        glDeleteProgram(m_shaderProgram);
         return false;
     }
 
@@ -224,14 +224,14 @@ bool Shader::compile(const char* vertexShaderCode, const char* fragmentShaderCod
 GLint Shader::getUniformLocation(const std::string& name)
 {
     // check the cache
-    if (const auto it = _uniforms.find(name); it != _uniforms.end())
+    if (const auto it = m_uniforms.find(name); it != m_uniforms.end())
     {
         return it->second;
     }
 
     // uniform not in cache, request the location from OpenGL
-    const GLint location = glGetUniformLocation(_shaderProgram, name.c_str());
-    _uniforms.emplace(name, location);
+    const GLint location = glGetUniformLocation(m_shaderProgram, name.c_str());
+    m_uniforms.emplace(name, location);
 
     if (location == -1)
     {

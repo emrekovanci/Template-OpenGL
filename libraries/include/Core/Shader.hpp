@@ -45,6 +45,6 @@ private:
     GLint getUniformLocation(const std::string& name);
 
 private:
-    GLuint _shaderProgram {};
-    std::unordered_map<std::string, GLint> _uniforms;
+    GLuint m_shaderProgram {};
+    std::unordered_map<std::string, GLint> m_uniforms;
 };
