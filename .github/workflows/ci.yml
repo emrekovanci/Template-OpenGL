@@ -82,7 +82,7 @@ jobs:
 
       - name: Check Formatting
         run: |
-          git config --global color.ui auto
-          git diff --exit-code
+          sudo apt-get install colordiff -y -q
+          git diff --color=always --exit-code | colordiff
 
 
