@@ -53,6 +53,7 @@ BreakConstructorInitializers: AfterColon
 BreakBeforeBinaryOperators: None
 BreakInheritanceList: AfterColon
 BreakStringLiterals: true
+SeparateDefinitionBlocks: Always
 
 # Initializers & arguments
 BinPackArguments: false
