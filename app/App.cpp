@@ -1,21 +1,24 @@
+#include <Core/Camera.hpp>
+#include <Core/Shader.hpp>
+
+#include <glad/glad.h>
+#include <glm/ext/matrix_transform.hpp>
+
+#include <SFML/Window.hpp>
+
 #include <iostream>
 #include <vector>
 
-#include <glad/glad.h>
-#include <SFML/Window.hpp>
-#include <glm/ext/matrix_transform.hpp>
-
-#include <Core/Shader.hpp>
-#include <Core/Camera.hpp>
-
 void displayGpuInfo()
 {
+    // clang-format off
     std::cout
         << "---------------------------------------------\n"
         << "Vendor:  \t" << glGetString(GL_VENDOR) <<   '\n'
         << "Version: \t" << glGetString(GL_VERSION) <<  '\n'
         << "Renderer:\t" << glGetString(GL_RENDERER) << '\n'
         << "---------------------------------------------\n";
+    // clang-format on
 }
 
 int main()
@@ -41,8 +44,7 @@ int main()
 
     Camera camera;
 
-    std::vector<glm::vec3> vertices
-    {
+    std::vector<glm::vec3> vertices {
         { 0.0f, 1.0f, 0.0f },
         { -1.0f, -1.0f, 0.0f },
         { 1.0f, -1.0f, 0.0f },
@@ -51,15 +53,15 @@ int main()
     GLuint vbo;
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices.data(), GL_STATIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
     GLuint vao;
     glGenVertexArrays(1, &vao);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBindVertexArray(vao);
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), nullptr);
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), nullptr);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 
@@ -108,7 +110,7 @@ int main()
         shader.setMat4("Projection", projection);
 
         glBindVertexArray(vao);
-            glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
         glBindVertexArray(0);
 
         window.display();

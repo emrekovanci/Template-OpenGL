@@ -1,11 +1,11 @@
 #include <Core/Shader.hpp>
 
-#include <iostream>
+#include <glm/gtc/type_ptr.hpp>
+
 #include <fstream>
+#include <iostream>
 #include <iterator>
 #include <utility>
-
-#include <glm/gtc/type_ptr.hpp>
 
 namespace
 {

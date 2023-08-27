@@ -1,11 +1,11 @@
 #pragma once
 
+#include <glad/glad.h>
+#include <glm/glm.hpp>
+
 #include <filesystem>
 #include <string>
 #include <unordered_map>
-
-#include <glad/glad.h>
-#include <glm/glm.hpp>
 
 class Shader
 {
