@@ -46,9 +46,8 @@ jobs:
 
       - name: Install SFML Dependencies
         if: runner.os == 'Linux'
-        run: >-
+        run: |
           sudo apt-get update -qq
-
           sudo apt-get install libudev-dev libx11-dev libxrandr-dev libxcursor-dev libxi-dev libgl1-mesa-dev -y -q
 
       - name: CMake Configure
@@ -75,14 +74,12 @@ jobs:
           sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 15CF4D18AF4F7421
           sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' -y
           sudo apt-get update -qq
-          sudo apt-get install clang-format-16 -y -q
+          sudo apt-get install clang-format-16 colordiff -y -q
 
       - name: Format Code
         run: cmake -DCLANG_FORMAT_EXECUTABLE=clang-format-16 -P cmake/Format.cmake
 
       - name: Check Formatting
-        run: |
-          sudo apt-get install colordiff -y -q
-          git diff --color=always --exit-code | colordiff
+        run: git diff --color=always --exit-code | colordiff
 
 
