@@ -15,7 +15,8 @@
             "installDir": "${sourceDir}/out/install/${presetName}",
             "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
             "cacheVariables": {
-                "CMAKE_CXX_EXTENSIONS": "OFF"
+                "CMAKE_CXX_EXTENSIONS": "OFF",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
             }
         },
         {

@@ -6,5 +6,11 @@ out/
 .vscode/
 .idea/
 
+# cmake
+compile_commands.json
+
+# clangd-server
+.cache
+
 # user conf
 CMakeUserPresets.json
