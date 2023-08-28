@@ -62,16 +62,18 @@ jobs:
       - name: CMake Configure
         env:
           VCPKG_ROOT: '~/vcpkg'
+        shell: bash
         run: |
-          if [[ ${{ runner.os }} == 'Windows' ]]; then
+          if [ "${{ runner.os }}" == "Windows" ]; then
             cmake --preset=Windows-${{ matrix.compiler }}-${{ matrix.build_type }}
           else
             cmake --preset=${{ matrix.compiler }}-${{ matrix.build_type }}
           fi
 
       - name: CMake Build
+        shell: bash
         run: |
-          if [[ ${{ runner.os }} == 'Windows' ]]; then
+          if [ "${{ runner.os }}" == "Windows" ]; then
             cmake --build --preset=Windows-${{ matrix.compiler }}-${{ matrix.build_type }}
           else
             cmake --build --preset=${{ matrix.compiler }}-${{ matrix.build_type }}
