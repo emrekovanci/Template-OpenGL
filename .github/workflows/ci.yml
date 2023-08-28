@@ -17,7 +17,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
-          - macos-12
+          - macos-13
           - windows-2022
         compiler:
           - llvm
@@ -28,6 +28,8 @@ jobs:
 
         exclude:
           - os: windows-2022
+            compiler: gcc
+          - os: macos-13
             compiler: gcc
 
         include:

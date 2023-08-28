@@ -12,8 +12,8 @@ CompileFlags:
   # CompilationDatabase: out/build/Windows-llvm-Debug
 
 InlayHints:
+  Enabled: No
   Designators: Yes
-  Enabled: Yes
   ParameterNames: Yes
   DeducedTypes: Yes
 
