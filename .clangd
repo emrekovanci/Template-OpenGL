@@ -1,6 +1,15 @@
+# https://clangd.llvm.org/
+
 CompileFlags:
-  # Remove extra warnings specified in compile commands (in CMakePresets.json)
+  # Remove extra warnings specified in compile commands (specified in CMakePresets.json)
   Remove: -mabi
+
+  # if you are using VSCode and CMake Tools(provided by Microsoft) add
+    # "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json" to VSCode settings
+    # because CompilationDatabase field in .clangd doesn't support multiple folders to search
+
+  # "compile_commands.json" path (specified in CMakePresets.json)
+  # CompilationDatabase: out/build/Windows-llvm-Debug
 
 InlayHints:
   Designators: Yes
@@ -8,5 +17,8 @@ InlayHints:
   ParameterNames: Yes
   DeducedTypes: Yes
 
+# https://clangd.llvm.org/design/include-cleaner
+# By default, Include Cleaner will not diagnose headers from the Standard Library.
+# Standard Library headers support is not complete yet
 Diagnostics:
   UnusedIncludes: Strict
