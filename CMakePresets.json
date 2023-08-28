@@ -103,88 +103,66 @@
             }
         },
         {
-            "name": "Windows-msvc-Debug",
-            "inherits": "confs-windows-msvc-common",
+            "name": "debug",
+            "hidden": true,
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug"
             }
+        },
+        {
+            "name": "release",
+            "hidden": true,
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "Windows-msvc-Debug",
+            "inherits": ["confs-windows-msvc-common", "debug"]
         },
         {
             "name": "Windows-msvc-Release",
-            "inherits": "confs-windows-msvc-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
+            "inherits": ["confs-windows-msvc-common", "release"]
         },
         {
             "name": "Windows-llvm-Debug",
-            "inherits": "confs-windows-llvm-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
+            "inherits": ["confs-windows-llvm-common", "debug"]
         },
         {
             "name": "Windows-llvm-Release",
-            "inherits": "confs-windows-llvm-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
+            "inherits": ["confs-windows-llvm-common", "release"]
         },
         {
             "name": "Linux-llvm-Debug",
-            "inherits": "confs-linux-llvm-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
+            "inherits": ["confs-linux-llvm-common", "debug"]
         },
         {
             "name": "Linux-llvm-Release",
-            "inherits": "confs-linux-llvm-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
+            "inherits": ["confs-linux-llvm-common", "release"]
         },
         {
             "name": "Linux-gcc-Debug",
-            "inherits": "confs-linux-gcc-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
+            "inherits": ["confs-linux-gcc-common", "debug"]
         },
         {
             "name": "Linux-gcc-Release",
-            "inherits": "confs-linux-gcc-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
+            "inherits": ["confs-linux-gcc-common", "release"]
         },
         {
             "name": "macOS-llvm-Debug",
-            "inherits": "confs-linux-llvm-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
+            "inherits": ["confs-linux-llvm-common", "debug"]
         },
         {
             "name": "macOS-llvm-Release",
-            "inherits": "confs-linux-llvm-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
+            "inherits": ["confs-linux-llvm-common", "release"]
         },
         {
             "name": "macOS-gcc-Debug",
-            "inherits": "confs-linux-gcc-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug"
-            }
+            "inherits": ["confs-linux-gcc-common", "debug"]
         },
         {
             "name": "macOS-gcc-Release",
-            "inherits": "confs-linux-gcc-common",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
+            "inherits": ["confs-linux-gcc-common", "release"]
         }
     ],
     "buildPresets": [
