@@ -63,18 +63,18 @@ jobs:
         env:
           VCPKG_ROOT: '~/vcpkg'
         run: |
-          if [[ ${{ runner.os }} == 'Linux' ]]; then
-            cmake --preset=${{ matrix.compiler }}-${{ matrix.build_type }}
-          else
+          if [[ ${{ runner.os }} == 'Windows' ]]; then
             cmake --preset=Windows-${{ matrix.compiler }}-${{ matrix.build_type }}
+          else
+            cmake --preset=${{ matrix.compiler }}-${{ matrix.build_type }}
           fi
 
       - name: CMake Build
         run: |
-          if [[ ${{ runner.os }} == 'Linux' ]]; then
-            cmake --build --preset=${{ matrix.compiler }}-${{ matrix.build_type }}
-          else
+          if [[ ${{ runner.os }} == 'Windows' ]]; then
             cmake --build --preset=Windows-${{ matrix.compiler }}-${{ matrix.build_type }}
+          else
+            cmake --build --preset=${{ matrix.compiler }}-${{ matrix.build_type }}
           fi
 
   format:
