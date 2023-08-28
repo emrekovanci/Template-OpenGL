@@ -1,0 +1,12 @@
+CompileFlags:
+  # Remove extra warnings specified in compile commands (in CMakePresets.json)
+  Remove: -mabi
+
+InlayHints:
+  Designators: Yes
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+
+Diagnostics:
+  UnusedIncludes: Strict

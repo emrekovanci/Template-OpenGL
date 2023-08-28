@@ -72,7 +72,7 @@ int main()
 
     glm::mat4 projection = glm::perspective(
         glm::radians(45.0f),
-        static_cast<float>(window.getSize().x) / window.getSize().y,
+        static_cast<float>(window.getSize().x) / static_cast<float>(window.getSize().y),
         0.1f,
         100.0f
     );
