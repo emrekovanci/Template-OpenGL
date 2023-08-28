@@ -77,6 +77,9 @@
                 "type": "notEquals",
                 "lhs": "${hostSystemName}",
                 "rhs": "Windows"
+            },
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wshadow -Wpedantic -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wno-missing-prototypes -Wno-switch-enum -Wno-c++98-compat"
             }
         },
         {
@@ -133,35 +136,19 @@
             "inherits": ["confs-windows-llvm-common", "release"]
         },
         {
-            "name": "Linux-llvm-Debug",
+            "name": "llvm-Debug",
             "inherits": ["confs-linux-llvm-common", "debug"]
         },
         {
-            "name": "Linux-llvm-Release",
+            "name": "llvm-Release",
             "inherits": ["confs-linux-llvm-common", "release"]
         },
         {
-            "name": "Linux-gcc-Debug",
+            "name": "gcc-Debug",
             "inherits": ["confs-linux-gcc-common", "debug"]
         },
         {
-            "name": "Linux-gcc-Release",
-            "inherits": ["confs-linux-gcc-common", "release"]
-        },
-        {
-            "name": "macOS-llvm-Debug",
-            "inherits": ["confs-linux-llvm-common", "debug"]
-        },
-        {
-            "name": "macOS-llvm-Release",
-            "inherits": ["confs-linux-llvm-common", "release"]
-        },
-        {
-            "name": "macOS-gcc-Debug",
-            "inherits": ["confs-linux-gcc-common", "debug"]
-        },
-        {
-            "name": "macOS-gcc-Release",
+            "name": "gcc-Release",
             "inherits": ["confs-linux-gcc-common", "release"]
         }
     ],
@@ -183,36 +170,20 @@
             "configurePreset": "Windows-llvm-Release"
         },
         {
-            "name": "Linux-llvm-Debug",
-            "configurePreset": "Linux-llvm-Debug"
+            "name": "llvm-Debug",
+            "configurePreset": "llvm-Debug"
         },
         {
-            "name": "Linux-llvm-Release",
-            "configurePreset": "Linux-llvm-Release"
+            "name": "llvm-Release",
+            "configurePreset": "llvm-Release"
         },
         {
-            "name": "Linux-gcc-Debug",
-            "configurePreset": "Linux-gcc-Debug"
+            "name": "gcc-Debug",
+            "configurePreset": "gcc-Debug"
         },
         {
-            "name": "Linux-gcc-Release",
-            "configurePreset": "Linux-gcc-Release"
-        },
-        {
-            "name": "macOS-llvm-Debug",
-            "configurePreset": "macOS-llvm-Debug"
-        },
-        {
-            "name": "macOS-llvm-Release",
-            "configurePreset": "macOS-llvm-Release"
-        },
-        {
-            "name": "macOS-gcc-Debug",
-            "configurePreset": "macOS-gcc-Debug"
-        },
-        {
-            "name": "macOS-gcc-Release",
-            "configurePreset": "macOS-gcc-Release"
+            "name": "gcc-Release",
+            "configurePreset": "gcc-Release"
         }
     ]
 }
