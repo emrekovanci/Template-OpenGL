@@ -46,7 +46,7 @@ namespace
     bool loadFileContents(const std::filesystem::path& sourcefilePath, std::string& destination)
     {
         std::ifstream file { sourcefilePath };
-        if (file)
+        if (file.is_open())
         {
             destination = { std::istreambuf_iterator<char> { file }, std::istreambuf_iterator<char> {} };
         }
