@@ -60,7 +60,7 @@
             "inherits": "confs-windows-common",
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": "clang-cl",
-                "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wshadow -Wpedantic -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wno-missing-prototypes -Wno-switch-enum -Wno-c++98-compat"
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wshadow -Wpedantic -Wunused -Wformat=2 -Wnull-dereference -Wnon-virtual-dtor -Woverloaded-virtual -Wold-style-cast -Wno-missing-prototypes -Wno-switch-enum -Wno-c++98-compat"
             },
             "vendor": {
                 "microsoft.com/VisualStudioSettings/CMake/1.0": {
