@@ -9,8 +9,6 @@
 
 class Shader
 {
-    using Path = std::filesystem::path;
-
 public:
     Shader() = default;
     Shader(const Shader&) = delete;
@@ -19,7 +17,10 @@ public:
     Shader& operator=(Shader&& source) noexcept;
     ~Shader();
 
-    bool loadFromFile(const Path& vertexShaderFilePath, const Path& fragmentShaderFilePath);
+    bool loadFromFile(
+        const std::filesystem::path& vertexShaderFilePath,
+        const std::filesystem::path& fragmentShaderFilePath
+    );
 
     void use() const;
 

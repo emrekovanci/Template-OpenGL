@@ -89,7 +89,10 @@ Shader::~Shader()
     }
 }
 
-bool Shader::loadFromFile(const Path& vertexShaderFilePath, const Path& fragmentShaderFilePath)
+bool Shader::loadFromFile(
+    const std::filesystem::path& vertexShaderFilePath,
+    const std::filesystem::path& fragmentShaderFilePath
+)
 {
     std::string vertexShaderCode;
     if (!loadFileContents(vertexShaderFilePath, vertexShaderCode))
