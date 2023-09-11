@@ -42,7 +42,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Cpp Environment
         uses: aminya/setup-cpp@v1
@@ -90,7 +90,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Clang-Format
         uses: aminya/setup-cpp@v1
