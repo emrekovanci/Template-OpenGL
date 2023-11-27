@@ -4,7 +4,7 @@ add_executable(${PROJECT_NAME} App.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE CoreLibrary)
 
 # depends on SFML
-target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-network sfml-graphics sfml-window)
+target_link_libraries(${PROJECT_NAME} PRIVATE sfml-system sfml-window)
 
 # set the output directory for the executable
 set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})
