@@ -4,12 +4,12 @@
         "glad",
         {
             "name": "sfml",
-            "version>=": "2.6.0#18"
+            "version>=": "2.6.1"
         },
         {
             "name": "glm",
             "version>=": "0.9.9.8#2"
         }
     ],
-    "builtin-baseline": "c95000e1b5bb62884de08d5e952993c8bced9db6"
+    "builtin-baseline": "13c3c0fcc203d179f4443fe48d252e3ff220cbeb"
 }
