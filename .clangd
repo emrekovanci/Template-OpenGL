@@ -24,3 +24,12 @@ InlayHints:
 # Standard Library headers support is not complete yet
 Diagnostics:
   UnusedIncludes: Strict
+
+---
+
+# ignore packages that installed by vcpkg
+If:
+  PathMatch: out/.*
+Diagnostics:
+  Suppress: '*'
+  UnusedIncludes: None
