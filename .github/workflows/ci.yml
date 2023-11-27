@@ -83,7 +83,7 @@ jobs:
     name: Formatting
     runs-on: ubuntu-22.04
     env:
-      CLANG_FORMAT_VERSION: 16
+      CLANG_FORMAT_VERSION: 17
 
     strategy:
       fail-fast: false

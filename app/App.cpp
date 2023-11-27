@@ -1,5 +1,6 @@
 #include <Core/Camera.hpp>
 #include <Core/Shader.hpp>
+#include <Core/Statics.hpp>
 
 #include <glad/glad.h>
 #include <glm/ext/matrix_transform.hpp>
@@ -9,27 +10,15 @@
 #include <iostream>
 #include <vector>
 
-void displayGpuInfo()
-{
-    // clang-format off
-    std::cout
-        << "---------------------------------------------\n"
-        << "Vendor:  \t" << glGetString(GL_VENDOR) <<   '\n'
-        << "Version: \t" << glGetString(GL_VERSION) <<  '\n'
-        << "Renderer:\t" << glGetString(GL_RENDERER) << '\n'
-        << "---------------------------------------------\n";
-    // clang-format on
-}
-
 int main()
 {
-    sf::ContextSettings settings;
-    settings.depthBits = 24;
-    settings.stencilBits = 8;
-    settings.majorVersion = 3;
-    settings.minorVersion = 3;
+    sf::ContextSettings contextSettings;
+    contextSettings.depthBits = 24;
+    contextSettings.stencilBits = 8;
+    contextSettings.majorVersion = 3;
+    contextSettings.minorVersion = 3;
 
-    sf::Window window(sf::VideoMode(800, 600), "OpenGL Workbench", sf::Style::Default, settings);
+    sf::Window window(sf::VideoMode(800, 600), "OpenGL Workbench", sf::Style::Default, contextSettings);
 
     if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(sf::Context::getFunction)))
     {
@@ -37,7 +26,7 @@ int main()
         return EXIT_FAILURE;
     }
 
-    displayGpuInfo();
+    Statics::displayGpuInfo();
 
     Shader shader;
     shader.loadFromFile("resources/shaders/vertex.glsl", "resources/shaders/fragment.glsl");

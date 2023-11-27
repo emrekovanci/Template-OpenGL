@@ -3,12 +3,14 @@ set(SRCROOT ${PROJECT_SOURCE_DIR}/library/src/Core)
 
 # all header files
 set(LIBRARY_HEADERS
+    ${INCROOT}/Statics.hpp
     ${INCROOT}/Camera.hpp
     ${INCROOT}/Shader.hpp
 )
 
 # all source files
 set(LIBRARY_SOURCES
+    ${SRCROOT}/Statics.cpp
     ${SRCROOT}/Camera.cpp
     ${SRCROOT}/Shader.cpp
 )
