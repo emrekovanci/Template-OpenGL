@@ -13,9 +13,11 @@ CompileFlags:
 
 InlayHints:
   Enabled: No
+  BlockEnd: Yes
   Designators: Yes
   ParameterNames: Yes
   DeducedTypes: Yes
+  TypeNameLimit: 24
 
 # https://clangd.llvm.org/design/include-cleaner
 # By default, Include Cleaner will not diagnose headers from the Standard Library.
