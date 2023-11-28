@@ -19,7 +19,7 @@ endif()
 
 # Collect project files
 set(SOURCES "")
-foreach(FOLDER IN ITEMS app libraries)
+foreach(FOLDER IN ITEMS app library)
     file(GLOB_RECURSE folder_files "${FOLDER}/*.hpp" "${FOLDER}/*.inl" "${FOLDER}/*.cpp")
     list(APPEND SOURCES ${folder_files})
 endforeach()
