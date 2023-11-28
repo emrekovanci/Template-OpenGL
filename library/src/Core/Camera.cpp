@@ -7,48 +7,48 @@ Camera::Camera()
 
 glm::mat4 Camera::getViewMatrix() const
 {
-    return glm::lookAt(Position, Position + Front, Up);
+    return glm::lookAt(position, position + front, up);
 }
 
 void Camera::processKeyboard(CameraMovement direction, float deltaTime)
 {
-    const float velocity = MovementSpeed * deltaTime;
+    const float velocity = movementSpeed * deltaTime;
     if (direction == CameraMovement::Forward)
     {
-        Position += Front * velocity;
+        position += front * velocity;
     }
     if (direction == CameraMovement::Backward)
     {
-        Position -= Front * velocity;
+        position -= front * velocity;
     }
     if (direction == CameraMovement::Left)
     {
-        Position -= Right * velocity;
+        position -= right * velocity;
     }
     if (direction == CameraMovement::Right)
     {
-        Position += Right * velocity;
+        position += right * velocity;
     }
 }
 
 void Camera::processMouseMovement(float xoffset, float yoffset, bool constrainPitch)
 {
-    xoffset *= MouseSensitivity;
-    yoffset *= MouseSensitivity;
+    xoffset *= mouseSensitivity;
+    yoffset *= mouseSensitivity;
 
-    Yaw += xoffset;
-    Pitch += yoffset;
+    yaw += xoffset;
+    pitch += yoffset;
 
     // make sure that when pitch is out of bounds, screen doesn't get flipped
     if (constrainPitch)
     {
-        if (Pitch > 89.0f)
+        if (pitch > 89.0f)
         {
-            Pitch = 89.0f;
+            pitch = 89.0f;
         }
-        if (Pitch < -89.0f)
+        if (pitch < -89.0f)
         {
-            Pitch = -89.0f;
+            pitch = -89.0f;
         }
     }
 
@@ -57,26 +57,26 @@ void Camera::processMouseMovement(float xoffset, float yoffset, bool constrainPi
 
 void Camera::processMouseScroll(float yoffset)
 {
-    Zoom -= yoffset;
-    if (Zoom < 1.0f)
+    zoom -= yoffset;
+    if (zoom < 1.0f)
     {
-        Zoom = 1.0f;
+        zoom = 1.0f;
     }
-    if (Zoom > 45.0f)
+    if (zoom > 45.0f)
     {
-        Zoom = 45.0f;
+        zoom = 45.0f;
     }
 }
 
 void Camera::updateCameraVectors()
 {
-    const glm::vec3 front(
-        cos(glm::radians(Yaw)) * cos(glm::radians(Pitch)),
-        sin(glm::radians(Pitch)),
-        sin(glm::radians(Yaw)) * cos(glm::radians(Pitch))
+    const glm::vec3 cameraFront(
+        cos(glm::radians(yaw)) * cos(glm::radians(pitch)),
+        sin(glm::radians(pitch)),
+        sin(glm::radians(yaw)) * cos(glm::radians(pitch))
     );
 
-    Front = glm::normalize(front);
-    Right = glm::normalize(glm::cross(Front, WorldUp));
-    Up = glm::normalize(glm::cross(Right, Front));
+    front = glm::normalize(cameraFront);
+    right = glm::normalize(glm::cross(front, worldUp));
+    up = glm::normalize(glm::cross(right, front));
 }
