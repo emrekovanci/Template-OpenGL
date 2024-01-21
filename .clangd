@@ -24,7 +24,7 @@ InlayHints:
 # Standard Library headers support is not complete yet
 Diagnostics:
   UnusedIncludes: Strict
-  MissingIncludes: Strict
+  MissingIncludes: None
 
 ---
 
