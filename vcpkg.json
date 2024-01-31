@@ -2,7 +2,6 @@
     "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
     "name": "template-opengl",
     "version-string": "0.1.0",
-    "builtin-baseline": "13c3c0fcc203d179f4443fe48d252e3ff220cbeb",
     "dependencies": [
         "glad",
         {
