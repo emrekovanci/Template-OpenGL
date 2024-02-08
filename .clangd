@@ -1,6 +1,9 @@
 # https://clangd.llvm.org/
 
 CompileFlags:
+  Add:
+    - "-ferror-limit=0"
+
   # Remove extra warnings specified in compile commands (specified in CMakePresets.json)
   Remove: -mabi
 
