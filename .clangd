@@ -4,15 +4,13 @@ CompileFlags:
   Add:
     - "-ferror-limit=0"
 
-  # Remove extra warnings specified in compile commands (specified in CMakePresets.json)
-  Remove: -mabi
+  Remove:
+    - "-mabi"
 
   # if you are using VSCode and CMake Tools(provided by Microsoft) add
-    # "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json" to VSCode settings
+    # "cmake.copyCompileCommands": "${workspaceFolder}/.vscode/compile_commands.json" to VSCode settings
     # because CompilationDatabase field in .clangd doesn't support multiple folders to search
-
-  # "compile_commands.json" path (specified in CMakePresets.json)
-  # CompilationDatabase: out/build/Windows-llvm-Debug
+  CompilationDatabase: .vscode
 
 InlayHints:
   Enabled: No
