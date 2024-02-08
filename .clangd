@@ -37,3 +37,4 @@ If:
 Diagnostics:
   Suppress: '*'
   UnusedIncludes: None
+  MissingIncludes: None
