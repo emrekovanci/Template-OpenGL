@@ -4,7 +4,6 @@
 
 #include <fstream>
 #include <iostream>
-#include <iterator>
 #include <utility>
 
 namespace
@@ -45,13 +44,18 @@ namespace
 
     bool loadFileContents(const std::filesystem::path& sourcefilePath, std::string& destination)
     {
-        std::ifstream file { sourcefilePath };
-        if (file.is_open())
+        std::ifstream file { sourcefilePath, std::ios_base::binary };
+        if (file)
         {
-            destination = { std::istreambuf_iterator<char> { file }, std::istreambuf_iterator<char> {} };
+            const std::uintmax_t size = std::filesystem::file_size(sourcefilePath);
+            if (size > 0)
+            {
+                destination.resize(static_cast<std::size_t>(size));
+                file.read(destination.data(), static_cast<std::streamsize>(size));
+            }
+            return true;
         }
-
-        return file.is_open();
+        return false;
     }
 } // namespace
 
