@@ -4,9 +4,6 @@ CompileFlags:
   Add:
     - "-ferror-limit=0"
 
-  Remove:
-    - "-mabi"
-
   # if you are using VSCode and CMake Tools(provided by Microsoft) add
     # "cmake.copyCompileCommands": "${workspaceFolder}/.vscode/compile_commands.json" to VSCode settings
     # because CompilationDatabase field in .clangd doesn't support multiple folders to search
