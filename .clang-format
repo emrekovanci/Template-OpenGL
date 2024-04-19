@@ -22,12 +22,12 @@ UseTab: Never
 
 # Alignment
 AlignAfterOpenBracket: BlockIndent
-AlignConsecutiveAssignments: false
+AlignConsecutiveAssignments: None
 AlignConsecutiveBitFields: Consecutive
-AlignConsecutiveDeclarations: false
+AlignConsecutiveDeclarations: None
 AlignConsecutiveMacros: Consecutive
 AlignEscapedNewlines: Left
-AlignOperands: false
+AlignOperands: DontAlign
 AlignTrailingComments:
   Kind: Always
   OverEmptyLines: 1
@@ -78,19 +78,19 @@ MaxEmptyLinesToKeep: 1
 # Sorting
 IncludeBlocks: Regroup
 IncludeCategories:
+  # Test headers
   - Priority: 1
-    Regex: '^\"(.+)\"$'
+    Regex: '<(catch2|gtest).*>'
+  # "Header.h", "Header.hpp" etc.
   - Priority: 2
-    Regex: '^<Core\/'
+    Regex: '^\"(.+)\"$'
+  # Core Library
   - Priority: 3
-    Regex: '^<(glad|gl|X11|jni|android|stb_|GLES2|vorbis|catch2)'
+    Regex: '^<Core\/'
+  # C++ standard headers
   - Priority: 4
-    Regex: '^<SFML\/'
-  - Priority: 5
-    Regex: '^<([^c](.+)|coroutine|charconv|chrono|complex|concepts|condition_variable)>$'
-  - Priority: 6
-    Regex: '^<c(.+)>$'
-SortIncludes: true
+    Regex: '<[[:alnum:]_-]+>'
+SortIncludes: Never
 SortUsingDeclarations: true
 
 # Pointer & Reference Alignment
@@ -117,7 +117,7 @@ SpaceBeforeSquareBrackets: false
 SpaceInEmptyBlock: false
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
-SpacesInAngles: false
+SpacesInAngles: Never
 SpacesInCStyleCastParentheses: false
 SpacesInConditionalStatement: false
 SpacesInContainerLiterals: false
