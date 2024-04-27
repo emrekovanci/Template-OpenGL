@@ -45,7 +45,6 @@ private:
     bool compile(const char* vertexShaderCode, const char* fragmentShaderCode);
     GLint getUniformLocation(const std::string& name);
 
-private:
     GLuint m_shaderProgram {};
     std::unordered_map<std::string, GLint> m_uniforms;
 };

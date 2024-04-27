@@ -20,7 +20,7 @@ int main()
 
     sf::Window window(sf::VideoMode(800, 600), "OpenGL Workbench", sf::Style::Default, contextSettings);
 
-    if (!gladLoadGLLoader(reinterpret_cast<GLADloadproc>(sf::Context::getFunction)))
+    if (gladLoadGLLoader(reinterpret_cast<GLADloadproc>(sf::Context::getFunction)) == 0)
     {
         std::cout << "Failed to initialize GLAD!\n";
         return EXIT_FAILURE;
@@ -39,13 +39,18 @@ int main()
         { 1.0f, -1.0f, 0.0f },
     };
 
-    GLuint vbo;
+    GLuint vbo = 0;
     glGenBuffers(1, &vbo);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices.data(), GL_STATIC_DRAW);
+    glBufferData(
+        GL_ARRAY_BUFFER,
+        static_cast<GLsizeiptr>(vertices.size() * sizeof(glm::vec3)),
+        vertices.data(),
+        GL_STATIC_DRAW
+    );
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    GLuint vao;
+    GLuint vao = 0;
     glGenVertexArrays(1, &vao);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBindVertexArray(vao);
@@ -68,7 +73,7 @@ int main()
 
     while (window.isOpen())
     {
-        sf::Event event;
+        sf::Event event {};
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)

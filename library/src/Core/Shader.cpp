@@ -74,7 +74,7 @@ Shader& Shader::operator=(Shader&& source) noexcept
     }
 
     // destroy current program
-    if (m_shaderProgram)
+    if (m_shaderProgram != 0u)
     {
         glDeleteProgram(m_shaderProgram);
     }
@@ -87,7 +87,7 @@ Shader& Shader::operator=(Shader&& source) noexcept
 
 Shader::~Shader()
 {
-    if (m_shaderProgram)
+    if (m_shaderProgram != 0u)
     {
         glDeleteProgram(m_shaderProgram);
     }
@@ -183,7 +183,7 @@ void Shader::setMat4(const std::string& name, const glm::mat4& mat)
 bool Shader::compile(const char* vertexShaderCode, const char* fragmentShaderCode)
 {
     // destroy the shader if it was already created
-    if (m_shaderProgram)
+    if (m_shaderProgram != 0u)
     {
         glDeleteShader(m_shaderProgram);
         m_shaderProgram = 0;

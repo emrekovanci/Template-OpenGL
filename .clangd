@@ -30,7 +30,7 @@ Diagnostics:
 
 # Ignore packages that installed by vcpkg
 If:
-  PathMatch: out/.*
+  PathMatch: (out|build).*
 Diagnostics:
   Suppress: '*'
   UnusedIncludes: None
