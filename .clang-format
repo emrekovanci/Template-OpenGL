@@ -87,10 +87,16 @@ IncludeCategories:
   # Core Library
   - Priority: 3
     Regex: '^<Core\/'
-  # C++ standard headers
+  # gl headers
   - Priority: 4
+    Regex: '^<(glad|glm)'
+  # sfml headers
+  - Priority: 5
+    Regex: '^<SFML\/'
+  # C++ standard headers
+  - Priority: 6
     Regex: '<[[:alnum:]_-]+>'
-SortIncludes: Never
+SortIncludes: CaseSensitive
 SortUsingDeclarations: true
 
 # Pointer & Reference Alignment
